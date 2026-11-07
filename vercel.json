@@ -2,10 +2,12 @@
   "version": 2,
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
-    { "src": "assets/**", "use": "@vercel/static" }
+    { "src": "assets/**", "use": "@vercel/static" },
+    { "src": "image/**", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/assets/(.*)", "headers": { "cache-control": "s-maxage=31536000, immutable" } },
+    { "src": "/image/(.*)", "dest": "/image/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
